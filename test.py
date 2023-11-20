@@ -207,7 +207,7 @@ class TestBooksCollector:
 
 # Тесты параметризованные
 
-    @pytest.mark.parametrize('name', ['abcde', '1abcd', '123$#', '    ', '123 4'])
+    @pytest.mark.parametrize('name', ['гкг', '1abcd', '-90f', '    ', 'oask ls'])
     def test_add_new_book_list_success(self, name):
 
         collector = BooksCollector()
