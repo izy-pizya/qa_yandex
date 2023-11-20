@@ -1,13 +1,13 @@
 Добавил тесты для класса "BooksCollector".
 
-Проверяем возможность добавление книги с пустым именем
+# Проверяем возможность добавление книги с пустым именем
 test_add_new_book_empty_name
 
-Проверяем, что книга добавляется корректно
-def test_add_new_book_success
+# Проверяем, что книга добавляется корректно
+test_add_new_book_success
 
 
-Проверяем, что книга не добавляется, если её имя слишком длинное
+# Проверяем, что книга не добавляется, если её имя слишком длинное
 test_add_new_book_with_long_title
 
 
@@ -36,7 +36,7 @@ test_get_books_with_specific_genre_success
 
 
 # Проверяем, что получаем пустой список, если жанр не существует
-    def test_get_books_with_specific_genre_not_exists
+test_get_books_with_specific_genre_not_exists
 
 
 # Тесты для метода get_books_genre
