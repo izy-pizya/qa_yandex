@@ -80,6 +80,25 @@ class TestBooksCollector:
 
         assert collector.get_book_genre("Дети Хурина") == ''
 
+    @pytest.fixture
+    def fixture_method(self):
+# Добавляем фикстуру для параметризированного теста
+        return BooksCollector()
+
+    @pytest.mark.parametrize("initial_books_genre, name, genre, expected_books_genre", [
+    ({'Властелин колец': 'Фантастика', 'Кладбище домашних животных': 'Ужасы'}, 'Властелин колец', 'Детективы', {'Властелин колец': 'Детективы', 'Кладбище домашних животных': 'Ужасы'}),
+    ({'Властелин колец': 'Фантастика', 'Кладбище домашних животных': 'Ужасы'}, 'NonExistentBook', 'Детективы', {'Властелин колец': 'Фантастика', 'Кладбище домашних животных': 'Ужасы'}),
+    ({'Властелин колец': 'Фантастика', 'Кладбище домашних животных': 'Ужасы'}, 'Властелин колец', 'NonExistentGenre', {'Властелин колец': 'Фантастика', 'Кладбище домашних животных': 'Ужасы'}),
+    ])
+# Выделяем параметризованный тест и добавляем параметры
+    def test_set_book_genre(self, fixture_method, initial_books_genre, name, genre, expected_books_genre):
+
+        fixture_method.books_genre = initial_books_genre
+
+        fixture_method.set_book_genre(name, genre)
+
+        assert fixture_method.books_genre == expected_books_genre
+
 # Тесты для метода get_book_genre
     def test_get_book_genre_name_success(self):
 
